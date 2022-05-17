@@ -1,0 +1,23 @@
+{
+  "name": "cordova-plugin-obsclient",
+  "version": "1.0.1",
+  "description": "cordova huawei obsclient plugin",
+  "cordova": {
+    "id": "cordova-plugin-obsclient",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cicoco/cordova-plugin-obsclient.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "tafiagu",
+  "license": "MIT"
+}

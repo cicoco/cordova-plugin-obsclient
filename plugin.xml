@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-obsclient" version="1.0.1"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>ObsClientPlugin</name>
+    <js-module name="ObsClient" src="www/ObsClient.js">
+        <clobbers target="cordova.plugins.ObsClient" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="ObsClientPlugin">
+                <param name="android-package" value="unic.cicoco.cordova.obsclient.ObsClientPlugin" />
+            </feature>
+        </config-file>
+        <config-file parent="application" target="AndroidManifest.xml">
+            <provider android:name="androidx.core.content.FileProvider" android:authorities="${applicationId}.provider" android:exported="false" android:grantUriPermissions="true">
+                <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/obs_provider_paths" />
+            </provider>
+        </config-file>
+         <!-- android:requestLegacyExternalStorage="true" -->
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.GET_TOP_ACTIVITY_INFO" />
+        </config-file>
+        <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
+        <!-- <lib-file src="src/android/libs/esdk-obs-android-3.20.3.jar" />
+        <lib-file src="src/android/libs/jackson-annotations-2.10.0.jar" />
+        <lib-file src="src/android/libs/jackson-core-2.10.0.jar" />
+        <lib-file src="src/android/libs/jackson-databind-2.10.0.jar" />
+        <lib-file src="src/android/libs/java-xmlbuilder-1.2.jar" />
+        <lib-file src="src/android/libs/okhttp-3.14.2.jar" />
+        <lib-file src="src/android/libs/okio-1.17.2.jar" /> -->
+        <source-file src="src/android/xml/obs_provider_paths.xml" target-dir="res/xml" />
+
+        <source-file src="src/android/ObsClientPlugin.java" target-dir="src/unic/cicoco/cordova/obsclient" />
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="ObsClientPlugin">
+                <param name="ios-package" value="CDVObsClient" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/CDVObsClient.h" />
+        <source-file src="src/ios/CDVObsClient.m" />
+        <header-file src="src/ios/HWCredential.h" />
+        <source-file src="src/ios/HWCredential.m" />
+        <framework src="src/ios/lib/OBS.framework" custom="true" />
+    </platform>
+</plugin>

@@ -1,0 +1,10 @@
+repositories{
+    jcenter()
+    maven {
+        url 'https://mirrors.huaweicloud.com/repository/maven/'
+    }
+}
+
+dependencies {
+    compile 'com.huaweicloud:esdk-obs-android:3.22.3'
+}
