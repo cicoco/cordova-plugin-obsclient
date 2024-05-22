@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-obsclient",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "cordova huawei obsclient plugin",
   "cordova": {
     "id": "cordova-plugin-obsclient",
