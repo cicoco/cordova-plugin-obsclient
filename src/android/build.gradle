@@ -6,5 +6,5 @@ repositories{
 }
 
 dependencies {
-    compile 'com.huaweicloud:esdk-obs-android:3.22.3'
+    implementation 'com.huaweicloud:esdk-obs-android:3.22.3'
 }
